@@ -20,6 +20,7 @@ pipeline {
             steps {
                 sh "docker login --username $GHCR_CREDENTIALS_USR --password $GHCR_CREDENTIALS_PSW ghcr.io"
                 sh "docker push ghcr.io/tomwey2/jenkins-agent:$IMAGE_VERSION"
+                sh "docker push ghcr.io/tomwey2/jenkins-agent:latest"
             }
         }
     }
