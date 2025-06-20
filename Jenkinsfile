@@ -8,7 +8,6 @@ pipeline {
         stage("initialize") {
             steps {
                 sh "env"
-                sh "mvn --version"
                 sh "java -version"
             }
         }
