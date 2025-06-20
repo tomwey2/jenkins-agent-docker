@@ -39,7 +39,8 @@ RUN apt-get install -y temurin-21-jdk
 # ====================================================================
 # Setzt die JAVA_HOME Umgebungsvariable. Maven und andere Tools benötigen diese,
 # um das richtige JDK zu finden.
-ENV JAVA_HOME /usr/lib/jvm/temurin-21-jdk-$(dpkg --print-architecture)
+RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/temurin-21-jdk-*/bin/java 1 && \
+    update-alternatives --set java /usr/lib/jvm/temurin-21-jdk-*/bin/java
 
 # Das Basis-Image hat bereits eine Java-Version. Dieser Befehl sorgt dafür,
 # dass unser neu installiertes Java 21 die Standard-Version auf dem System ist.
